@@ -1,7 +1,9 @@
+import { useState } from 'react';
 import image1 from './assets/images/image-1.png';
 import image2 from './assets/images/image-2.png';
 import image3 from './assets/images/image-3.png';
 import Card from './components/Card';
+import { useEffect } from 'react';
 
 const cardData = [
   {
@@ -34,9 +36,23 @@ const cardData = [
 ];
 
 function App() {
+  const [darkMode, setDarkMode] = useState(false);
+
+  function handleTheme() {
+    setDarkMode(prev => !prev);
+  }
+
+  useEffect(() => {
+    const theme = darkMode ? 'dark' : '';
+    document.documentElement.setAttribute('data-theme', theme);
+  }, [darkMode]);
+
   return (
     <div className="bg-backgroundColor text-contentColor isolate overflow-hidden p-4 sm:p-8 grid place-items-center">
       <div className="grid relative min-h-screen items-center justify-center gap-16">
+        <button onClick={handleTheme} className="bg-contentColor text-backgroundColor border-contentColor border max-w-max ml-auto p-2 px-4 rounded hover:bg-opacity-70">
+          {darkMode ? 'Light Mode' : 'Dark Mode'}
+        </button>
         <h1 className="text-6xl font-bold text-center">
           <span className="underline">Dark</span> or <span className="underline">Light</span>?
         </h1>
