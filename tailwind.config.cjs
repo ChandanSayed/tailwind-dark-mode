@@ -4,8 +4,8 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        backgroundColor: 'hsl(210 40% 98%)',
-        contentColor: 'hsl(217 32.6% 17.5%)'
+        backgroundColor: 'rgb(var(--background-color) / <alpha-value>)',
+        contentColor: 'rgb(var(--content-color) / <alpha-value>)'
       },
       animation: {
         'spin-slower': 'spin 35s ease infinite',
