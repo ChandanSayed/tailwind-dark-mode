@@ -43,18 +43,18 @@ function App() {
   }
 
   useEffect(() => {
-    const theme = darkMode ? 'dark' : '';
-    document.documentElement.setAttribute('data-theme', theme);
+    const theme = darkMode ? 'dark' : 'light';
+    document.documentElement.setAttribute('class', theme);
   }, [darkMode]);
 
   return (
-    <div className="bg-backgroundColor text-contentColor isolate overflow-hidden p-4 sm:p-8 grid place-items-center">
+    <div className="bg-backgroundColor text-contentColor isolate overflow-hidden transition-[background-color] duration-1000 p-4 sm:p-8 grid place-items-center">
       <div className="grid relative min-h-screen items-center justify-center gap-16">
         <button onClick={handleTheme} className="bg-contentColor text-backgroundColor border-contentColor border max-w-max ml-auto p-2 px-4 rounded hover:bg-opacity-70">
           {darkMode ? 'Light Mode' : 'Dark Mode'}
         </button>
         <h1 className="text-6xl font-bold text-center">
-          <span className="underline">Dark</span> or <span className="underline">Light</span>?
+          <span className="underline text-contentColor dark:text-red-600">Dark</span> or <span className="underline">Light</span>?
         </h1>
         <section className="container grid sm:grid-cols-2 md:grid-cols-3 gap-6 items-start" aria-label="card container">
           {cardData.map(card => (

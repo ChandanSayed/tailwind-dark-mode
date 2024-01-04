@@ -7,8 +7,12 @@
     --background-color: 248 250 252;
     --content-color: 30 41 59;
   }
-  :root[data-theme='dark'] {
+  :root[class='dark'] {
     --background-color: 0 0 0;
     --content-color: 255 255 255;
   }
+}
+
+* {
+  @apply transition-colors duration-100;
 }
